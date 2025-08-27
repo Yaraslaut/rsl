@@ -30,7 +30,7 @@ struct preferred_name;
 template <>
 struct preferred_name<void> {
   constexpr static auto value = "void";
-  char const* data            = nullptr;
+  rsl::string_view data{};
   consteval explicit preferred_name(std::string_view name) : data(define_static_string(name)) {}
 };
 

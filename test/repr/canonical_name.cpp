@@ -196,3 +196,9 @@ TEST(QualifiedName, Specialization) {
   ASSERT_EQ((rsl::type_name<TestNS::HasSpecialization, rsl::NameMode::fully_qualified>),
             "::TestNS::foo"s);
 }
+
+static_assert(rsl::string_view().empty());
+static_assert(!rsl::string_view("a").empty());
+static_assert(rsl::string_view("a").size() == 1);
+static_assert(sizeof(rsl::string_view::value_type) == 1);
+static_assert(rsl::string_view("a").max_size() == std::numeric_limits<size_t>::max());
